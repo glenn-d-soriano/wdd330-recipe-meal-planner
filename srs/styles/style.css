@@ -1,0 +1,150 @@
+/* src/styles/style.css */
+
+/* * 1. Base Styles & Typography 
+ * Using a simple, modern color palette: 
+ * Primary (Green/Blue) for action, Secondary (Cream/Gray) for background.
+ */
+:root {
+    --color-primary: #1e8449;
+    /* Darker Green for buttons/accents */
+    --color-secondary: #27ae60;
+    /* Lighter Green for hover/focus */
+    --color-background: #f8f9fa;
+    /* Light Gray/Cream background */
+    --color-text: #34495e;
+    /* Dark Blue/Gray for text */
+    --color-white: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* Use a common, clean font */
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* * 2. Search Form Styling 
+ */
+#recipe-search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+#recipe-search-form input[type="search"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#recipe-search-form input[type="search"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+#recipe-search-form button {
+    padding: 12px 25px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#recipe-search-form button:hover {
+    background-color: var(--color-secondary);
+}
+
+#recipe-search-form button:active {
+    transform: translateY(1px);
+}
+
+
+/* * 3. Recipe Results Layout (Grid) 
+ */
+#recipe-results ul {
+    list-style: none;
+    padding: 0;
+    /* Use Grid for responsive layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-shadow);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* Ensures images look good without stretching */
+}
+
+.recipe-card h3 {
+    font-size: 1.1em;
+    padding: 15px 10px 5px;
+    color: var(--color-primary);
+}
+
+.recipe-card p {
+    font-size: 0.9em;
+    color: #777;
+    padding: 0 10px 15px;
+}
+
+/* Initial welcome message style */
+#recipe-results p {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 40px;
+}
