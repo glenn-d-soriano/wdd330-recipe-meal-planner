@@ -1,7 +1,10 @@
 // src/modules/ExternalServices.mjs
 
 // Access the API key defined in your .env file
-const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+//const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+//const BASE_URL = "https://api.spoonacular.com/recipes";
+
+const API_KEY = "be0c71675eec4f00832e130fa2d6e88f"; 
 const BASE_URL = "https://api.spoonacular.com/recipes";
 
 // Helper function to handle the fetch request and error checking
