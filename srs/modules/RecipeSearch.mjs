@@ -1,7 +1,7 @@
 // src/modules/RecipeSearch.mjs
 import ExternalServices from './ExternalServices.mjs';
 
-const PLACEHOLDER_IMAGE_PATH = new URL('/srs/assets/placeholder.png', import.meta.url).href;
+const PLACEHOLDER_IMAGE_PATH = '/src/assets/placeholder.png';
 // Instantiate the service layer
 const services = new ExternalServices();
 
