@@ -14,7 +14,7 @@ function recipeCardTemplate(recipe) {
 
     // *** FIX: Wrap content in <a> and use the imageUrl variable ***
     return `<li class="recipe-card" data-id="${recipe.id}">
-              <a href="/recipe-detail.html?id=${recipe.id}"> 
+              <a href="recipe-detail.html?id=${recipe.id}"> 
                 
                 <img src="${imageUrl}" alt="${recipe.title}"> 
                 
