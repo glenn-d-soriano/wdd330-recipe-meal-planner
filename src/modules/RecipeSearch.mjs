@@ -11,11 +11,17 @@ function recipeCardTemplate(recipe) {
     const imageUrl = (recipe.image && recipe.image !== '')
         ? recipe.image
         : PLACEHOLDER_IMAGE_PATH;
+
+    // *** FIX: Wrap content in <a> and use the imageUrl variable ***
     return `<li class="recipe-card" data-id="${recipe.id}">
-              <img src="${recipe.image}" alt="${recipe.title}">
-              <h3>${recipe.title}</h3>
-              <p>ID: ${recipe.id}</p> 
-              </li>`;
+              <a href="/recipe-detail.html?id=${recipe.id}"> 
+                
+                <img src="${imageUrl}" alt="${recipe.title}"> 
+                
+                <h3>${recipe.title}</h3>
+                <p>ID: ${recipe.id}</p> 
+              </a>
+            </li>`;
 }
 
 

@@ -1,11 +1,11 @@
 // src/modules/ExternalServices.mjs
 
 // Access the API key defined in your .env file
-//const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
-//const BASE_URL = "https://api.spoonacular.com/recipes";
-
-const API_KEY = "be0c71675eec4f00832e130fa2d6e88f"; 
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
 const BASE_URL = "https://api.spoonacular.com/recipes";
+
+//const API_KEY = "be0c71675eec4f00832e130fa2d6e88f"; 
+//const BASE_URL = "https://api.spoonacular.com/recipes";
 
 // Helper function to handle the fetch request and error checking
 async function fetchRecipeData(url) {
@@ -31,5 +31,15 @@ export default class ExternalServices {
         return data.results;
     }
 
-    // NOTE: You will implement getRecipeDetails(id) in Week 6
+    // week 6
+    // NEW METHOD FOR WEEK 6: Get details by ID
+    async getRecipeDetails(id) {
+        // The information bulk endpoint is more efficient for full details
+        const url = `${BASE_URL}/${id}/information?apiKey=${API_KEY}`;
+
+        // This endpoint returns a single recipe object with all data
+        const data = await fetchRecipeData(url);
+
+        return data;
+    }
 }
