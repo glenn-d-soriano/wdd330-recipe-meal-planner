@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
     // FIX 1: Add the base path (CORRECT)
-    base: '/wdd330-recipe-meal-planner/',
+    //base: '/wdd330-recipe-meal-planner/',
 
     // FIX 2: ADD A COMMA HERE!
 
