@@ -1,12 +1,15 @@
-// vite.config.js - The clean, standard configuration
+// vite.config.js
+
 import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    // DELETE THE LINE: root: "src/", 
-    // Vite will now default to the project root for entry.
+    // FIX 1: Add the base path (CORRECT)
+    base: '/wdd330-recipe-meal-planner/',
+
+    // FIX 2: ADD A COMMA HERE!
 
     build: {
-        outDir: "../dist",
+        outDir: "dist", // NOTE: Changed from "../dist" to just "dist" for standard setup
     },
 });
