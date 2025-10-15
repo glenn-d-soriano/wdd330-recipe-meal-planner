@@ -1,5 +1,6 @@
 // src/recipe-detail.js
 import ExternalServices from './ExternalServices.mjs';
+import Favorites from './favorites.mjs'; 
 
 const services = new ExternalServices();
 
@@ -14,29 +15,58 @@ function getRecipeId() {
 }
 
 // Function to get and display the recipe details
+// src/recipe-detail.js (Updated loadRecipeDetails function)
+
 async function loadRecipeDetails() {
     const recipeId = getRecipeId();
-    const detailOutput = document.getElementById('recipe-detail-output');
 
-    if (!recipeId) {
-        detailOutput.innerHTML = '<p class="error">No recipe ID found in the URL.</p>';
+    // 1. Target the correct output container (This is correct)
+    const mainOutput = document.getElementById('recipe-detail-output');
+    const contentOutput = document.getElementById('recipe-content');
+
+    // Add checks for the elements (good practice)
+    if (!mainOutput || !contentOutput) {
+        console.error("Missing required HTML elements (#recipe-detail-output or #recipe-content).");
         return;
     }
 
-    try {
-        detailOutput.innerHTML = `<p>Fetching details for ID: ${recipeId}...</p>`;
+    // --- CRITICAL RESTORATION: Validation and Error Output ---
+    if (!recipeId) {
+        mainOutput.innerHTML = '<p class="error">No recipe ID found in the URL.</p>';
+        return; // Stop execution if no ID is found
+    }
+    // -----------------------------------------------------------
 
-        // Call the new API service method
+    try {
+        // Now it's safe to write the fetching message
+        contentOutput.innerHTML = `<p>Fetching details for ID: ${recipeId}...</p>`;
+
         const recipe = await services.getRecipeDetails(recipeId);
 
-        // Display the results using a template function (next step)
-        detailOutput.innerHTML = detailTemplate(recipe);
+        // Prepare the essential data to save to LocalStorage (This is correct)
+        const essentialRecipeData = {
+            id: recipe.id,
+            title: recipe.title,
+            image: recipe.image,
+            extendedIngredients: recipe.extendedIngredients
+        };
+
+        // Initialize Favorites (This is correct)
+        const favoriteHandler = new Favorites(recipe.id, essentialRecipeData);
+        favoriteHandler.initButton();
+
+        // 2. Display results
+        contentOutput.innerHTML = detailTemplate(recipe);
 
     } catch (error) {
         console.error("Failed to load recipe details:", error);
-        detailOutput.innerHTML = `<p class="error">Error loading recipe details. Status: ${error.message}</p>`;
+        // Write the API error message to the main output container
+        mainOutput.innerHTML = `<p class="error">Error loading recipe details. Status: ${error.message}</p>`;
     }
 }
+
+// Start the process when the page loads
+loadRecipeDetails();
 
 // Function to structure and format the final HTML for the recipe details
 function detailTemplate(recipe) {

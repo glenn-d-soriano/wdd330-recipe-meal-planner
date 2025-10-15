@@ -148,3 +148,56 @@ main {
     color: #777;
     padding: 40px;
 }
+
+/* src/styles/style.css */
+
+/* --- Advanced CSS: Media Queries for Mobile --- */
+@media (max-width: 768px) {
+
+    /* 1. Adjust Main Layout and Font Size */
+    main.divider {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    /* 2. Style Search Form for Full Width */
+    #recipe-search-form {
+        display: block;
+        /* Change from flex/grid to block */
+        padding: 10px;
+    }
+
+    #recipe-search-form input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+        /* Add space below the input */
+    }
+
+    #recipe-search-form button {
+        width: 100%;
+        margin-left: 0;
+        /* Remove horizontal margin */
+    }
+
+    /* 3. Stack Recipe Results (Assuming results use flex or grid) */
+    .recipe-list {
+        display: block;
+        /* Stack items */
+    }
+
+    .recipe-item {
+        margin-bottom: 20px;
+        width: 100%;
+        /* Take up the full width */
+    }
+
+    /* 4. Recipe Detail Page Image Adjustment */
+    #recipe-detail-output img {
+        width: 100%;
+        /* Make image full width */
+        height: auto;
+    }
+}

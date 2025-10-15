@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Shopping List</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="shopping-list.css">
+</head>
+
+<body>
+    <header>
+        <h1>Weekly Shopping List</h1>
+        <a href="../meal-planner/index.html" class="button">← Back to Meal Planner</a>
+    </header>
+
+    <main class="divider">
+        <section id="shopping-list-output">
+            <h2>Ingredients for the Week</h2>
+            <p id="list-message">Loading...</p>
+
+            <ul id="consolidated-list">
+            </ul>
+        </section>
+
+        <section id="recipes-in-plan">
+            <h2>Recipes Included</h2>
+            <ul id="planned-recipes-list">
+            </ul>
+        </section>
+    </main>
+
+    <script type="module" src="../src/modules/ShoppingListGenerator.js"></script>
+</body>
+
+</html>

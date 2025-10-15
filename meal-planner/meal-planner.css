@@ -1,0 +1,111 @@
+/* meal-planner/meal-planner.css */
+
+/* Advanced CSS: CSS Grid for the 7-day calendar */
+.meal-calendar-grid {
+    display: grid;
+    /* Create 7 equally sized columns for the days of the week */
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.day-card {
+    /* Day card styling */
+    border: 1px solid var(--color-border, #ddd);
+    padding: 10px;
+    background-color: var(--color-background-secondary, #f9f9f9);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.day-header {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-primary, #333);
+}
+
+/* Advanced CSS Example: Hover effect on day cards */
+.day-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Advanced CSS: Transform/Transition for a subtle effect */
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style for the favorite recipe items (will be draggable later) */
+.meal-recipe-item {
+    padding: 5px 8px;
+    margin-top: 5px;
+    background-color: var(--color-accent, #7ac013);
+    color: white;
+    border-radius: 4px;
+    cursor: move;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+/* Basic styling for the favorites list to keep it separate */
+#available-recipes {
+    margin-top: 40px;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+}
+
+#favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+/* meal-planner/meal-planner.css */
+
+/* --- Advanced CSS: Media Queries for Mobile --- */
+@media (max-width: 768px) {
+
+    /* 1. Calendar Grid Transformation (CRITICAL) */
+    .meal-calendar-grid {
+        /* Change from 7 columns to a single column stack */
+        grid-template-columns: 1fr;
+        gap: 15px;
+        /* Add space between the stacked day cards */
+    }
+
+    /* 2. Style for individual Day Cards */
+    .day-card {
+        padding: 10px;
+        text-align: left;
+        /* Ensure the day-header and date-header are clear */
+    }
+
+    .day-header {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    /* 3. Planner Controls Adjustment */
+    .planner-controls {
+        display: block;
+        /* Stack controls vertically */
+    }
+
+    .planner-controls button,
+    .planner-controls a.button {
+        width: 100%;
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    /* 4. Recipe Favorites List Adjustment */
+    #favorites-list li {
+        font-size: 0.9em;
+    }
+}

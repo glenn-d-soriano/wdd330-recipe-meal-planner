@@ -12,11 +12,22 @@
     <header>
         <h1>Recipe Details</h1>
     </header>
-    <main id="recipe-detail-output">
-        <p>Loading recipe...</p>
-    </main>
+    <main class="divider">
 
-    <script type="module" src="/wdd330-recipe-meal-planner/src/modules/recipe-detail.js"></script>
+        <section class="recipe-container" id="recipe-detail-output">
+            <div class="save-controls">
+                <button id="save-favorite-btn">
+                    Add to Favorites ❤️
+                </button>
+            </div>
+
+            <div id="recipe-content">
+            </div>
+    
+        </section>
+    </main>
+    <script type="module" src="src/modules/recipe-detail.js"></script>
+    <!--script type="module" src="/wdd330-recipe-meal-planner/src/modules/recipe-detail.js"></script-->
 </body>
 
 </html>

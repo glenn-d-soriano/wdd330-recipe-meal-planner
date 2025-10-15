@@ -1,0 +1,92 @@
+/* shopping-list/shopping-list.css */
+
+/* General containers for visual separation */
+#shopping-list-output,
+#recipes-in-plan {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 8px;
+    background-color: var(--color-background-secondary, #f9f9f9);
+}
+
+/* Style for the main consolidated list */
+#consolidated-list {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+}
+
+#consolidated-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border, #ccc);
+    display: flex;
+    /* Align checkbox and text */
+    align-items: center;
+    font-size: 1.1em;
+}
+
+/* Checkbox styling */
+#consolidated-list li input[type="checkbox"] {
+    margin-right: 15px;
+    /* Optional: Style the checkbox for better visibility */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Style for crossed-out items (Optional: for marking items as purchased) */
+#consolidated-list li.checked {
+    text-decoration: line-through;
+    color: var(--color-text-secondary, #888);
+}
+
+/* Style for the list of included recipes */
+#planned-recipes-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* shopping-list/shopping-list.css */
+
+/* ... (Existing styles for #shopping-list-output, #consolidated-list, etc.) ... */
+
+
+/* --- Advanced CSS: Media Queries for Mobile (Shopping List) --- */
+@media (max-width: 768px) {
+
+    /* 1. Main Divider/Layout Adjustment */
+    main.divider {
+        display: block;
+        /* If you used flex/grid for main content, change to block */
+        padding: 10px;
+    }
+
+    /* 2. Stack the Sections (Output and Recipes Included) */
+    #shopping-list-output,
+    #recipes-in-plan {
+        width: 100%;
+        /* Make sure both sections take full width */
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+        /* Space between the two stacked sections */
+    }
+
+    /* 3. Adjust Font Size for better mobile fit */
+    #consolidated-list li {
+        font-size: 1em;
+        padding: 8px 0;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    /* 4. Back to Planner button */
+    header a.button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
